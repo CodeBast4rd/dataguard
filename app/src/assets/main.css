@@ -1,0 +1,14 @@
+@import './normalize.css';
+@import './colors.css';
+
+#app {
+  display: flex;
+  height: 100vh;
+  font-family:
+    Helvetica,
+    Futura,
+    Trebuchet MS,
+    Arial,
+    sans-serif;
+  color: var(--dgBlack);
+}
