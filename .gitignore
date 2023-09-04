@@ -11,9 +11,6 @@ test/
 
 ### Node template
 
-# builds
-api/build
-
 # Logs
 logs
 *.log
