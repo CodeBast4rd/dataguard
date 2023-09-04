@@ -6,7 +6,14 @@ export class DataService {
   private static instance: DataService
 
   tabs: Ref<string[]> = ref([])
-  tabData: Ref<any> = ref({})
+  tabData: Ref<{
+    [key:string]: {
+      "title": string,
+      "icon": "icon-marketing" | "icon-finance" | "icon-people",
+      "active": string[],
+      "disabled": string[],
+      "inactive": string[],
+    }}> = ref({})
   plugins: Ref<any> = ref({})
 
   public static getInstance(): DataService {

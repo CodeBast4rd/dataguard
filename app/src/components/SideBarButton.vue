@@ -5,7 +5,7 @@ const iconToEmoji = {
   'icon-people': '👥'
 }
 
-const props = defineProps<{ icon: string; title: string; route: string }>()
+const props = defineProps<{ icon: 'icon-marketing' | 'icon-finance' | 'icon-people' ; title: string; route: string }>()
 </script>
 
 <template>

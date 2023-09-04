@@ -21,7 +21,7 @@ await DataService.getInstance()
 
     // Update the router with the new routes
     routes.forEach((route) => router.addRoute(route))
-    router.addRoute({ path: '/', redirect: `/${DataService.getInstance().tabs[0]}` })
+    router.addRoute({ path: '/', redirect: `/${DataService.getInstance().tabs.value[0]}` })
   })
   .catch((error) => {
     console.error('Error fetching data:', error)

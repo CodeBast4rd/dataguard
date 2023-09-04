@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import PluginItem from '@/components/PluginItem.vue'
-import { computed, ref, watch } from 'vue'
+import {computed, type ComputedRef, ref, watch} from 'vue'
 import { DataService } from '@/service/DataService'
 import router from '@/router'
 import type { PlainPlugin } from '@/types/PlainPlugin'
@@ -8,7 +8,7 @@ import type { PlainPlugin } from '@/types/PlainPlugin'
 const service = DataService.getInstance()
 
 // Create reactive references
-const tabData = ref(service.tabData.value[router.currentRoute.value.name])
+const tabData = ref(service.tabData.value[router.currentRoute.value.name as unknown as string]);
 const plugins = ref(service.plugins)
 
 // Watch for route changes and update tabData accordingly
@@ -18,11 +18,11 @@ watch(router.currentRoute, (newRoute) => {
 
 // Watch for route changes and update tabData accordingly
 watch(service.tabData, () => {
-  tabData.value = service.tabData.value[router.currentRoute.value.name]
+  tabData.value = service.tabData.value[router.currentRoute.value.name as unknown as string]
 })
 
-const currentPlugins: PlainPlugin[] = computed(() => {
-  const active = tabData.value.active.map((a) => ({ ...plugins.value[a], state: 'active' }))
+const currentPlugins: ComputedRef<PlainPlugin[]> = computed(() => {
+  const active = tabData.value.active.map((a: string) => ({ ...plugins.value[a], state: 'active' }))
   const disabled = tabData.value.disabled.map((a) => ({ ...plugins.value[a], state: 'disabled' }))
   const inactive = tabData.value.inactive.map((a) => ({ ...plugins.value[a], state: 'inactive' }))
   return [...active, ...disabled, ...inactive]
