@@ -9,6 +9,9 @@ var PORT = 3100;
 var app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: 'https://dataguard-ashen.vercel.app/'
+}));
 // Sample data
 var data = {
     "data": {
