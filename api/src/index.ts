@@ -6,9 +6,8 @@ const PORT = 3100;
 
 const app = express();
 app.use(express.json());
-app.use(cors())
 app.use(cors({
-    origin: 'https://dataguard-ashen.vercel.app/'
+    origin: 'https://dataguard-ashen.vercel.app'
 }));
 
 // Sample data
