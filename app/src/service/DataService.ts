@@ -1,7 +1,7 @@
 import { type Ref, ref } from 'vue'
 
 export class DataService {
-  private readonly baseURL = import.meta.env.API_URL ?? 'http://localhost:3100/v1/api'
+  private readonly baseURL = import.meta.env.VITE_API_URL;
 
   private static instance: DataService
 
